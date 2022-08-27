@@ -1,24 +1,14 @@
-# portfolio-rostomyan
+# Портфолио
 
-## Project setup
-```
-npm install
-```
+## В качестве фейкового апи буду использовать json-server
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## Команды:
 
-### Compiles and minifies for production
-```
-npm run build
-```
+1. Установка зависимостей:
+  - npm i
 
-### Lints and fixes files
-```
-npm run lint
-```
+2. Запуск json-сервера (Для этого используйте второе окно терминала):
+  - json-server --watch db.json
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+3. Запуск сервера:
+  - npm run server 

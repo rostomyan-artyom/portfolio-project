@@ -1,28 +1,36 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <component :is="layout">
+      <router-view/>
+    </component>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import '@/assets/styles/style.scss';
+
+//import CrmLayout from '@/layouts/crm';
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+
+  computed: {
+    layout() {
+      try {
+        const layoutPath = 'layouts';
+        const ln  = this.$route.meta.layout || 'empty';
+
+        return () => import(`@/${layoutPath}/${ln}.vue`);
+
+      } catch(e) {
+        console.error(e);
+        return  '';
+      }
+    },
+  },
+};
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
+<style lang="scss">
 </style>

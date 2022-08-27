@@ -1,0 +1,48 @@
+$minWidth: 320px;
+$maxWidth: 1920;
+$maxWidthContainer: 1170;
+$md1: $maxWidthContainer + 12;
+$md2: 991.98;
+$md3: 767.98;
+$md4: 479.98;
+///////////////////////////////////
+
+$fontFamily: "SFUI";
+
+body {
+  @media (min-width: 850px) {
+    overflow: auto !important;  //это для burger
+  }
+}
+
+.mx-input {
+  height: 40px !important;
+  border: 1px solid transparent !important;
+  transition: .2s !important;
+  box-shadow: 0px 0px 3px 3px rgba(88, 88, 88, 0.05) !important;
+  &:hover {
+    border: 1px solid rgb(236, 178, 53) !important;
+  }
+  &:active {
+    border: 1px solid rgb(236, 178, 53) !important;
+  }
+  &:focus {
+    border: 1px solid rgb(236, 178, 53) !important;
+  }
+}
+
+.mx-datepicker-main {
+  border-radius: 5px !important;
+  overflow: hidden !important;
+}
+
+.cell {
+  border-radius: 5px !important;
+  &:hover {
+    background-color: rgb(255, 232, 181) !important;
+  }
+}
+
+.cell.active {
+  background-color: rgb(236, 178, 53) !important;
+}

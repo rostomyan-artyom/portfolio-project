@@ -1,0 +1,44 @@
+{
+  "persons": [
+    {
+      "id":  1,
+      "avatar":  "https://avatars.mds.yandex.net/i?id=6c6547a6a7e7d68e074b0c473c234824-5685421-images-thumbs&n=13&exp=1",
+      "fullName": "Ростомян Артём Давидович",
+      "age": 19,
+      "gender": "male",
+      "post": "frontend",
+      "education": null,
+      "createdAt": "2022-07-31T18:53:51.615Z"
+    },
+    {
+      "id":  2,
+      "avatar":  "https://avatars.mds.yandex.net/i?id=6c6547a6a7e7d68e074b0c473c234824-5685421-images-thumbs&n=13&exp=1",
+      "fullName": "Билан Артём Давидович",
+      "age": 31,
+      "gender": "male",
+      "post": "frontend",
+      "education": null,
+      "createdAt": "2022-07-31T18:53:51.615Z"
+    },
+    {
+      "id":  3,
+      "avatar":  "https://bizbi.ru/upload/iblock/26b/26bbb1d97292db168184f1d1415b3876.jpg",
+      "fullName": "Захаров Артём Давидович",
+      "age": 29,
+      "gender": "male",
+      "post": "backend",
+      "education": null,
+      "createdAt": "2022-07-31T18:53:51.615Z"
+    },
+    {
+      "id": 4,
+      "avatar": "https://avatars.mds.yandex.net/i?id=6c6547a6a7e7d68e074b0c473c234824-5685421-images-thumbs&n=13&exp=1",
+      "fullName": "Грач Наталья Петровна",
+      "age": 22,
+      "gender": "female",
+      "post": "frontend",
+      "education": null,
+      "createdAt": "2022-07-31T18:53:51.615Z"
+    }
+  ]
+}
