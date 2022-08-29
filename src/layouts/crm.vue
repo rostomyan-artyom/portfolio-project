@@ -32,7 +32,7 @@ export default {
 
 .layout-crm__content {
   display: flex;
-  overflow: hidden;
+  //overflow: hidden;
   border-radius: 7px;
 }
 

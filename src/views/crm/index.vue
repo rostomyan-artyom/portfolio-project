@@ -2,13 +2,13 @@
   <div class="view-crm">
     <CrmHeader />
 
-    <div class="view-crm__table-container">
       <div class="view-crm__btns">
         <VButton class="view-crm__btn-item" @click.native="addPerson">
           Добавить
         </VButton>
       </div>
 
+    <div class="view-crm__table-container">
       <VTable
         :headerData="headerData"
         :bodyData="filteredPersonsList"
@@ -21,8 +21,9 @@
 </template>
 
 <script>
-import dayjs from 'dayjs';
+import { mapActions, mapState } from 'vuex';
 
+import dayjs from 'dayjs';
 import CrmHeader from '@/components/CRM/CrmHeader';
 import VTable from '@/components/common/ui/VTable';
 import VButton from '@/components/common/ui/Buttons/VButton';
@@ -103,13 +104,16 @@ export default {
         value: 'Дата создания',
       },
     ],
-    personsList: [],
+    persons: [],
   }),
   computed: {
+    ...mapState('CRMEducations', [
+      'educations',
+    ]),
     filteredPersonsList() {
       const filteredData = [];
 
-      for(let person of this.personsList) {
+      for(let person of this.persons) {
         const newPersonData = [];
 
         const personKeys = Object.keys(person);
@@ -144,17 +148,29 @@ export default {
 
   async created() {
     try {
-      const persons = await this.axios.get('/persons');
+      const personsResponse = await this.getPersons()
 
-      console.log(persons)
+      if(personsResponse.status !== 200) {
+        throw new Error(personsResponse)
+      }
 
-      this.personsList = persons.data;
-    } catch(e) {
-      console.log(e);
-    }
+      this.persons = personsResponse.data;
+      // const educationsResponse = await this.getEducations()
+      //
+      // if(educationsResponse.status !== 200) {
+      //   throw new Error(educationsResponse)
+      // }
+
+    } catch(e) { console.log(e); }
   },
 
   methods: {
+    ...mapActions('CRMEducations', [
+      'getEducations',
+    ]),
+    ...mapActions('CRMPersons', [
+      'getPersons',
+    ]),
     addPerson() {
       this.$modal.show('modal-add-person');
     },
@@ -163,6 +179,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.view-crm {
+  overflow-x: hidden;
+}
+
 ::v-deep .v-table__cell {
   &_avatar {
     width: 100px;
@@ -170,6 +190,7 @@ export default {
 }
 
 .view-crm__table-container {
+  max-width: 100%;
   overflow-x: auto;
 }
 

@@ -68,17 +68,18 @@ export default {
 
 .v-input__label {
   display: inline-block;
-  font-size: 17px;
-  font-weight: 500;
+  font-size: 16px;
+  font-weight: 400;
   margin-bottom: 10px;
+  color: #313131;
 }
 
 .v-input__hero {
   width: 100%;
   border-radius: 4px;
-  padding: 6px 5px 5px 5px;
+  padding: 6px 5px 5px 9px;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 400;
   border: 1px solid $borderColor;
   background-color: #fff;
   &::placeholder {

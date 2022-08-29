@@ -97,7 +97,7 @@ export default {
   background-color: #fff;
   border-radius: 8px;
   padding: 12px 15px;
-  overflow: auto;
+  //overflow: auto;
 }
 
 .v-table__header {
