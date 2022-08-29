@@ -42,6 +42,12 @@ export default {
     VInput,
     VSwitch,
   },
+  props: {
+    educations: {
+      type: Array,
+      default: () => ([]),
+    },
+  },
 
   data: () => ({
     inputList: [
@@ -49,14 +55,26 @@ export default {
         id: 1,
         value: '',
         label: 'Полное имя',
-        placeholder: 'Введите дату рождения',
+        placeholder: 'Введите полное имя',
       },
       {
         id: 2,
         value: '',
         label: 'Дата рождения',
-        placeholder: 'Дата рождения',
+        placeholder: 'Выберите дату рождения',
         type: 'date'
+      },
+    ],
+    selectsList: [
+      {
+        id: 1,
+        title: 'Должность',
+        options: '',
+      },
+      {
+        id: 2,
+        title: 'Образование',
+        options: this.educations,
       },
     ],
     genderTypes: [

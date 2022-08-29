@@ -82,7 +82,7 @@ export default {
   border: 1px solid $borderColor;
   background-color: #fff;
   &::placeholder {
-    color: #2f2f2f;
+    color: #868686;
   }
 }
 </style>

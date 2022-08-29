@@ -54,5 +54,19 @@
       "id": 3,
       "title": "Отсутствует"
     }
+  ],
+  "positions": [
+    {
+      "id": 1,
+      "title": "frontend"
+    },
+    {
+      "id": 2,
+      "title": "backend"
+    },
+    {
+      "id": 3,
+      "title": "fullstack"
+    }
   ]
 }
