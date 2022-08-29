@@ -7,7 +7,7 @@
       "age": 19,
       "gender": "male",
       "post": "frontend",
-      "education": null,
+      "education": "Отсутствует",
       "createdAt": "2022-07-31T18:53:51.615Z"
     },
     {
@@ -17,7 +17,7 @@
       "age": 31,
       "gender": "male",
       "post": "frontend",
-      "education": null,
+      "education": "Отсутствует",
       "createdAt": "2022-07-31T18:53:51.615Z"
     },
     {
@@ -27,7 +27,7 @@
       "age": 29,
       "gender": "male",
       "post": "backend",
-      "education": null,
+      "education": "Отсутствует",
       "createdAt": "2022-07-31T18:53:51.615Z"
     },
     {
@@ -37,8 +37,22 @@
       "age": 22,
       "gender": "female",
       "post": "frontend",
-      "education": null,
+      "education": "Отсутствует",
       "createdAt": "2022-07-31T18:53:51.615Z"
+    }
+  ],
+  "educations": [
+    {
+      "id": 1,
+      "title": "Высшее"
+    },
+    {
+      "id": 2,
+      "title": "Среднее"
+    },
+    {
+      "id": 3,
+      "title": "Отсутствует"
     }
   ]
 }

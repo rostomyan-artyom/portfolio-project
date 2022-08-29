@@ -15,25 +15,28 @@
         class="view-crm__table"
       />
     </div>
+
+    <ModalAddPerson />
   </div>
 </template>
 
 <script>
 import dayjs from 'dayjs';
 
-import CrmHeader from '@/components/crm/CrmHeader';
+import CrmHeader from '@/components/CRM/CrmHeader';
 import VTable from '@/components/common/ui/VTable';
 import VButton from '@/components/common/ui/Buttons/VButton';
+import ModalAddPerson from '@/components/common/Modals/CRM/ModalAddPerson';
 
 const personScheme = {
   avatar: {
-    type: 'image'
+    type: 'image',
   },
   fullName: {
-    type: 'string'
+    type: 'string',
   },
   age: {
-    type: 'string'
+    type: 'string',
   },
   gender: {
     type: 'string'
@@ -42,11 +45,12 @@ const personScheme = {
     type: 'string'
   },
   education: {
-    type: 'string'
+    type: 'string',
+    inputType: 'string',
   },
   createdAt: {
     type: 'date',
-    format: 'DD.MM.YYYY HH:mm'
+    format: 'DD.MM.YYYY HH:mm',
   },
 }
 
@@ -54,6 +58,7 @@ export default {
   name: 'ViewCRM',
   components: {
     CrmHeader,
+    ModalAddPerson,
     VTable,
     VButton,
   },
@@ -151,7 +156,7 @@ export default {
 
   methods: {
     addPerson() {
-      console.log('fssfd')
+      this.$modal.show('modal-add-person');
     },
   },
 }

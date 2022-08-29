@@ -4,3 +4,7 @@ import Vue from 'vue';
 import VueAxios from 'vue-axios';
 import axios from '@/initial/axios';
 Vue.use(VueAxios, axios);
+
+// Vue.js Modal
+import VModal from 'vue-js-modal';
+Vue.use(VModal)

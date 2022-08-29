@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import CrmLeftBar from "@/components/crm/CrmLeftBar";
+import CrmLeftBar from "@/components/CRM/CrmLeftBar";
 
 export default {
   name: 'LayoutCRM',
