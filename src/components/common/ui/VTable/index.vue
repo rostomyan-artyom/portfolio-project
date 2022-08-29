@@ -15,14 +15,14 @@
     <div class="v-table__body">
       <!--Данный блок служит оболочкой для рядов, что бы использовать position: absolute для кнопок редактирования и удаления-->
       <div
-        v-for="bodyItem in bodyData"
-        :key="bodyItem.id"
+        v-for="personItem in bodyData"
+        :key="personItem.id"
         class="v-table__row-container"
       >
         <div class="v-table__row">
 
           <div
-            v-for="(cellItem, index) in bodyItem.data"
+            v-for="(cellItem, index) in personItem.data"
             :key="index"
             :class="['v-table__cell', `v-table__cell_${ cellItem.alias }`]"
           >
@@ -33,10 +33,17 @@
               class="v-table__avatar"
             />
 
-            <span v-if="cellItem.type === 'string'" class="v-table__body-text">
-            {{ cellItem.value }}
-          </span>
+            <span v-if="cellItem.type === 'string'" class="v-table__person-text">
+              {{ cellItem.value }}
+            </span>
 
+            <router-link
+              v-else-if="cellItem.type === 'linkToProfile'"
+              :to="`/crm/persons/${ personItem.id }`"
+              class="v-table__person-text v-table__person-text_link"
+            >
+              {{ cellItem.value }}
+            </router-link>
           </div>
 
 
@@ -150,11 +157,18 @@ export default {
   color: #2c2c2c;
 }
 
-.v-table__body-text {
+.v-table__person-text {
   font-weight: 500;
   font-size: 15px;
   line-height: 115%;
   color: #444444;
+  transition: .2s cubic-bezier(0.6, 0.1, 0.15, 0.8);
+  &_link {
+    color: #000072;
+    &:hover {
+      color: #790000;
+    }
+  }
 }
 
 .v-table__avatar {

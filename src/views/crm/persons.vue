@@ -34,7 +34,7 @@ const personScheme = {
     type: 'image',
   },
   fullName: {
-    type: 'string',
+    type: 'linkToProfile',
   },
   age: {
     type: 'string',
@@ -74,7 +74,7 @@ export default {
       },
       {
         id: 2,
-        type: 'string',
+        type: 'linkToProfile',
         alias: 'fullName',
         value: 'ФИО',
       },
@@ -134,7 +134,7 @@ export default {
                 break;
               }
 
-              newPersonData.push({ type: 'string', value: person[personKey] || '-', alias: key });
+              newPersonData.push({ type: value.type, value: person[personKey] || '-', alias: key });
             }
           }
         }
