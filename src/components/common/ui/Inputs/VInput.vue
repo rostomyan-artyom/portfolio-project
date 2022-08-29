@@ -48,7 +48,7 @@ export default {
         return this.value;
       },
       set(value) {
-        return this.$emit('change-value', value);
+        return this.$emit('changeValue', value);
       },
     },
   },
@@ -77,7 +77,7 @@ export default {
 .v-input__hero {
   width: 100%;
   border-radius: 4px;
-  padding: 6px 5px 5px 9px;
+  padding: 7px 6px 6px 13px;
   font-size: 16px;
   font-weight: 400;
   border: 1px solid $borderColor;

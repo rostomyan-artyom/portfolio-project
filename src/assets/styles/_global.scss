@@ -15,22 +15,7 @@ body {
   }
 }
 
-.mx-input {
-  height: 40px !important;
-  border: 1px solid transparent !important;
-  transition: .2s !important;
-  box-shadow: 0px 0px 3px 3px rgba(88, 88, 88, 0.05) !important;
-  &:hover {
-    border: 1px solid rgb(236, 178, 53) !important;
-  }
-  &:active {
-    border: 1px solid rgb(236, 178, 53) !important;
-  }
-  &:focus {
-    border: 1px solid rgb(236, 178, 53) !important;
-  }
-}
-
+//данные стили являются глобальными, так как до них не добраться из компонента с scoped стилями
 .mx-datepicker-main {
   border-radius: 5px !important;
   overflow: hidden !important;

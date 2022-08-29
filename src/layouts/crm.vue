@@ -1,7 +1,7 @@
 <template>
   <div class="layout-crm">
     <div class="layout-crm__content">
-      <CrmLeftBar class="layout-crm__left-bar" />
+      <CRMLeftBar class="layout-crm__left-bar" />
 
       <router-view class="layout-crm__view" />
     </div>
@@ -9,12 +9,12 @@
 </template>
 
 <script>
-import CrmLeftBar from "@/components/CRM/CrmLeftBar";
+import CRMLeftBar from "@/components/CRM/CRMLeftBar";
 
 export default {
   name: 'LayoutCRM',
   components: {
-    CrmLeftBar,
+    CRMLeftBar,
   },
 }
 </script>

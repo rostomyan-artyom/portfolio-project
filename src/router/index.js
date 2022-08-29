@@ -1,11 +1,10 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import ViewHome from "@/views/home";
-import  ViewCRM from '@/views/crm';
 
 Vue.use(VueRouter);
 
-
+import ViewHome from '@/views/home';
+import serviceCrmRoute from '@/router/serviceCrmRoute';
 
 const routes = [
   {
@@ -13,12 +12,7 @@ const routes = [
     name: 'app',
     component: ViewHome,
   },
-  {
-    path: '/crm',
-    name: 'crm',
-    meta: { layout: 'crm' },
-    component: ViewCRM,
-  }
+  ...serviceCrmRoute,
 ]
 
 const router = new VueRouter({

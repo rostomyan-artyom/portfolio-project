@@ -5,6 +5,9 @@ const state = () => ({
 });
 
 const getters = {
+  positions(state) {
+    return state.positions;
+  },
 };
 
 const mutations = {

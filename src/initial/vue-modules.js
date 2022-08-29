@@ -8,3 +8,8 @@ Vue.use(VueAxios, axios);
 // Vue.js Modal
 import VModal from 'vue-js-modal';
 Vue.use(VModal)
+
+
+// VTooltip
+import VTooltip from 'v-tooltip'
+Vue.use(VTooltip)

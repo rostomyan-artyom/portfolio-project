@@ -5,6 +5,9 @@ const state = () => ({
 });
 
 const getters = {
+  educations(state) {
+    return state.educations;
+  },
 };
 
 const mutations = {

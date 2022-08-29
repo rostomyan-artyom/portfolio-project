@@ -15,7 +15,7 @@ import ArrowIcon from '@/assets/icons/common/arrow.svg';
 import PersonIcon from '@/assets/icons/common/person.svg';
 
 export default {
-  name: 'CrmHeader',
+  name: 'CRMHeader',
   components: {
     ArrowIcon,
     PersonIcon,

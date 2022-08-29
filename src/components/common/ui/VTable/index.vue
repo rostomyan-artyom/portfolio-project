@@ -43,11 +43,11 @@
       </div>
 
         <ul class="v-table__actions">
-          <li class="v-table__action-item">
+          <li v-tooltip="'Редактировать'" class="v-table__action-item">
             <EditIcon class="v-table__action-icon v-table__action-icon_edit" />
           </li>
 
-          <li class="v-table__action-item">
+          <li v-tooltip="'Удалить'" class="v-table__action-item">
             <CrossIcon class="v-table__action-icon v-table__action-icon_cross" />
           </li>
         </ul>

@@ -3,9 +3,9 @@
   z-index: 10000;
   max-width: 90%;
   .tooltip-inner {
-    background: rgba(0, 10, 3, 1);
-    background: linear-gradient(0deg, rgba(6, 52, 20, 1) 0%, rgba(0, 10, 3, 1) 100%);
-    color: white;
+    background: rgba(0, 40, 124);
+    background: linear-gradient(0deg, rgb(0, 65, 189) 30%, rgb(0, 40, 124) 100%);
+    color: rgb(255, 255, 255);
     border-radius: 16px;
     padding: 3px 10px 3px;
     font-size: rem(12px);
@@ -17,7 +17,7 @@
     border-style: solid;
     position: absolute;
     margin: 5px;
-    border-color: rgba(0, 10, 3, 1);
+    border-color: rgba(0, 40, 124);
     z-index: 1;
   }
 
@@ -26,7 +26,7 @@
 
     .tooltip-arrow {
       border-width: 5px 5px 0 5px;
-      border-color: rgba(6, 52, 20, 1);
+      border-color: rgba(0, 65, 189);
       border-left-color: transparent !important;
       border-right-color: transparent !important;
       border-bottom-color: transparent !important;
