@@ -6,16 +6,6 @@
       "fullName": "Грач Наталья Петровна",
       "age": 22,
       "gender": "female",
-      "post": "backend",
-      "education": "Отсутствует",
-      "createdAt": "2022-07-31T18:53:51.615Z"
-    },
-    {
-      "id": 2,
-      "avatar": "http://almode.ru/uploads/posts/2021-04/1618118690_30-p-dzhonni-depp-30.jpg",
-      "fullName": "Ростомян Артём Давидович",
-      "age": 19,
-      "gender": "male",
       "post": "frontend",
       "education": "Отсутствует",
       "createdAt": "2022-07-31T18:53:51.615Z"

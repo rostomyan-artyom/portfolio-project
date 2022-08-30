@@ -4,8 +4,6 @@ const state = () => ({
   persons: [],
 });
 
-const getters = {};
-
 const mutations = {
   SET_PERSONS(state, persons) {
     state.persons = persons;
@@ -42,7 +40,6 @@ const actions = {
 export default {
   namespaced: true,
   state,
-  getters,
   mutations,
   actions,
 }

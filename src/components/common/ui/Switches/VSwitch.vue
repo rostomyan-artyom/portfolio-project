@@ -48,8 +48,9 @@ export default {
   transition: .2s cubic-bezier(0.6, 0.1, 0.15, 0.8);
   border: 1px solid transparent;
   &_active {
-    background-color: rgb(53, 56, 236);
+    background-color: $blue;
     color: #fff;
+    cursor: default;
   }
 }
 </style>

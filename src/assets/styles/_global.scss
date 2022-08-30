@@ -24,12 +24,13 @@ body {
 .cell {
   border-radius: 5px !important;
   &:hover {
-    background-color: rgb(255, 232, 181) !important;
+    color: #fff !important;
+    background-color: $blue-light !important;
   }
 }
 
 .cell.active {
-  background-color: rgb(236, 178, 53) !important;
+  background-color: $blue !important;
 }
 
 .vm--modal {

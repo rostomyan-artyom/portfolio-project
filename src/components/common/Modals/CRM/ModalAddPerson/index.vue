@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import { mapActions, mapGetters,} from 'vuex';
+import { mapActions, mapState,} from 'vuex';
 
 import ModalAddPersonForm from '@/components/common/Modals/CRM/ModalAddPerson/ModalAddPersonForm';
 
@@ -70,10 +70,10 @@ export default {
     }
   },
   computed: {
-    ...mapGetters('CRMPositions', [
+    ...mapState('CRMPositions', [
       'positions',
     ]),
-    ...mapGetters('CRMEducations', [
+    ...mapState('CRMEducations', [
       'educations',
     ]),
     formAttrs() {

@@ -1,9 +1,11 @@
 <template>
   <div class="crm-left-bar">
     <div class="crm-left-bar__logo">
-      <router-link v-tooltip="'Домой'" to="/crm">
-        <CryptoIcon />
-      </router-link>
+      <VBurger
+        v-tooltip="burgerTooltip"
+        :status="burgerShow"
+        @click.native="toggleBurgerShow"
+      />
     </div>
 
     <div class="crm-left-bar__routes">
@@ -23,20 +25,30 @@
 </template>
 
 <script>
+import burgerMixin from '@/mixins/CRM/burgerMixin';
+
+import VBurger from "@/components/common/ui/VBurger";
 import CryptoIcon from '@/assets/icons/crm/crypto.svg';
 import UsersIcon from '@/assets/icons/crm/users.svg';
 
 export default {
   name: 'CRMLeftBar',
   components: {
-    CryptoIcon,
+    VBurger,
   },
+  mixins: [ burgerMixin, ],
 
   data() {
     return {
       routes: [
         {
           id: 1,
+          to: '',
+          label: 'CRM',
+          icon: CryptoIcon,
+        },
+        {
+          id: 2,
           to: 'persons',
           label: 'Клиенты',
           icon: UsersIcon,
@@ -63,5 +75,13 @@ export default {
   border-top: 1px solid $light-gray-color;
   padding: 20px 0;
   margin-top: 150px;
+}
+
+.crm-left-bar__routes-item {
+  width: 33px;
+  min-width: 33px;
+  &:not(:first-child) {
+    margin-top: 30px;
+  }
 }
 </style>

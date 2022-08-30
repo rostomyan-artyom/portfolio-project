@@ -3,8 +3,8 @@
   z-index: 10000;
   max-width: 90%;
   .tooltip-inner {
-    background: rgba(0, 40, 124);
-    background: linear-gradient(0deg, rgb(0, 65, 189) 30%, rgb(0, 40, 124) 100%);
+    background: $blue;
+    background: linear-gradient(0deg, $blue-light 30%, $blue 100%);
     color: rgb(255, 255, 255);
     border-radius: 16px;
     padding: 3px 10px 3px;
@@ -17,7 +17,7 @@
     border-style: solid;
     position: absolute;
     margin: 5px;
-    border-color: rgba(0, 40, 124);
+    border-color: $blue;
     z-index: 1;
   }
 
@@ -26,7 +26,7 @@
 
     .tooltip-arrow {
       border-width: 5px 5px 0 5px;
-      border-color: rgba(0, 65, 189);
+      border-color: $blue-light;
       border-left-color: transparent !important;
       border-right-color: transparent !important;
       border-bottom-color: transparent !important;

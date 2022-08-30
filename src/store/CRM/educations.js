@@ -4,12 +4,6 @@ const state = () => ({
   educations: [],
 });
 
-const getters = {
-  educations(state) {
-    return state.educations;
-  },
-};
-
 const mutations = {
   SET_EDUCATIONS(state, educations) {
     state.educations = educations;
@@ -31,7 +25,6 @@ const actions = {
 export default {
   namespaced: true,
   state,
-  getters,
   mutations,
   actions,
 }

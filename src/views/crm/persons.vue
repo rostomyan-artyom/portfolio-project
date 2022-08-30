@@ -7,11 +7,13 @@
     </div>
 
     <div class="view-crm-persons__table-container">
-      <VTable
-        :headerData="headerData"
-        :bodyData="filteredPersonsList"
-        class="view-crm-persons__table"
-      />
+      <div class="view-crm-persons__table-a">
+        <VTable
+          :headerData="headerData"
+          :bodyData="filteredPersonsList"
+          class="view-crm-persons__table"
+        />
+      </div>
     </div>
 
     <ModalAddPerson />
@@ -26,31 +28,7 @@ import VTable from '@/components/common/ui/VTable';
 import VButton from '@/components/common/ui/Buttons/VButton';
 import ModalAddPerson from '@/components/common/Modals/CRM/ModalAddPerson';
 
-const personScheme = {
-  avatar: {
-    type: 'image',
-  },
-  fullName: {
-    type: 'linkToProfile',
-  },
-  age: {
-    type: 'string',
-  },
-  gender: {
-    type: 'string'
-  },
-  post: {
-    type: 'string'
-  },
-  education: {
-    type: 'string',
-    inputType: 'string',
-  },
-  createdAt: {
-    type: 'date',
-    format: 'DD.MM.YYYY HH:mm',
-  },
-}
+import { personScheme } from '@/utils/schemes/CRM/profile';
 
 export default {
   name: 'ViewCRMPersons',
@@ -119,7 +97,7 @@ export default {
         for(let personKey of personKeys) {
           for(let [key, value] of Object.entries(personScheme)) {
             if(personKey === key) {
-              switch(value.type) {
+              switch (value.type) {
                 case 'image':
                   newPersonData.push({ type: 'image', imageLink: person[personKey], alias: key })
 
@@ -133,6 +111,8 @@ export default {
                 default:
                   newPersonData.push({ type: value.type, value: person[personKey] || '-', alias: key });
               }
+
+              break;
             }
           }
         }
@@ -168,7 +148,7 @@ export default {
 
 <style lang="scss" scoped>
 .view-crm-persons {
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 ::v-deep .v-table__cell {
@@ -179,14 +159,19 @@ export default {
 
 .view-crm-persons__table-container {
   max-width: 100%;
-  overflow-x: auto;
+  overflow: hidden;
+}
+
+.view-crm-persons__table-a {
+  overflow: auto;
+  width: 100%;
 }
 
 .view-crm-persons__table {
   max-height: 750px;
   margin-top: 25px;
   @media (max-width: 1200px) {
-    width: 1000px;
+    width: 1100px;
   }
 }
 

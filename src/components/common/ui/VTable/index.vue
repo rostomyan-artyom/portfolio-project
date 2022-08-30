@@ -12,7 +12,7 @@
       </div>
     </div>
 
-    <div class="v-table__body">
+    <div v-if="bodyData.length" class="v-table__body">
       <!--Данный блок служит оболочкой для рядов, что бы использовать position: absolute для кнопок редактирования и удаления-->
       <div
         v-for="personItem in bodyData"
@@ -62,6 +62,10 @@
         </ul>
       </div>
     </div>
+
+    <p v-else class="v-table__table-is-empty">
+      Табличка пуста
+    </p>
   </div>
 </template>
 
@@ -229,6 +233,12 @@ export default {
     transform: translate(0, -5px) scale(0.97);
     background-color: #f6f6f6;
   }
+}
+
+.v-table__table-is-empty {
+  margin: 20px 0;
+  text-align: center;
+  color: #a4a4a4;
 }
 
 ::v-deep .v-table__action-icon {

@@ -53,6 +53,10 @@
         @input="$emit('changeActiveSelectItem', selectItem.id, $event)"
       />
     </div>
+
+    <VButton class="modal-add-person-form__submit-btn">
+      Создать
+    </VButton>
   </form>
 </template>
 
@@ -61,6 +65,7 @@ import VueSelect from 'vue-select';
 import VInput from '@/components/common/ui/Inputs/VInput';
 import VSwitch from '@/components/common/ui/Switches/VSwitch';
 import VDatepicker from '@/components/common/ui/VDatepicker';
+import VButton from '@/components/common/ui/Buttons/VButton';
 
 export default {
   name: 'ModalAddPersonForm',
@@ -69,6 +74,7 @@ export default {
     VInput,
     VSwitch,
     VDatepicker,
+    VButton,
   },
 
   props: {
@@ -117,6 +123,12 @@ export default {
   &_center {
     text-align: center;
   }
+}
+
+.modal-add-person-form__submit-btn {
+  width: 300px;
+  height: 35px;
+  margin: 50px auto 0 auto;
 }
 
 ::v-deep .vs__dropdown-toggle {

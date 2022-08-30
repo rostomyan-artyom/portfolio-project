@@ -4,12 +4,6 @@ const state = () => ({
   positions: [],
 });
 
-const getters = {
-  positions(state) {
-    return state.positions;
-  },
-};
-
 const mutations = {
   SET_POSITIONS(state, positions) {
     state.positions = positions;
@@ -31,7 +25,6 @@ const actions = {
 export default {
   namespaced: true,
   state,
-  getters,
   mutations,
   actions,
 }
