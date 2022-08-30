@@ -1,6 +1,6 @@
 <template>
   <div class="view-crm-person-item">
-    Привет!!!!
+
   </div>
 </template>
 

@@ -45,17 +45,19 @@
               {{ cellItem.value }}
             </router-link>
           </div>
-
-
       </div>
 
         <ul class="v-table__actions">
           <li v-tooltip="'Редактировать'" class="v-table__action-item">
-            <EditIcon class="v-table__action-icon v-table__action-icon_edit" />
+            <button>
+              <EditIcon class="v-table__action-icon v-table__action-icon_edit" />
+            </button>
           </li>
 
           <li v-tooltip="'Удалить'" class="v-table__action-item">
-            <CrossIcon class="v-table__action-icon v-table__action-icon_cross" />
+            <button @click="deletePersonById(personItem.id)">
+              <CrossIcon class="v-table__action-icon v-table__action-icon_cross" />
+            </button>
           </li>
         </ul>
       </div>
@@ -64,8 +66,9 @@
 </template>
 
 <script>
-import VTableAvatar from "@/components/common/ui/VTable/VTableAvatar";
+import { mapActions } from 'vuex';
 
+import VTableAvatar from "@/components/common/ui/VTable/VTableAvatar";
 import CrossIcon from '@/assets/icons/common/cross.svg';
 import EditIcon from '@/assets/icons/common/edit.svg';
 
@@ -89,9 +92,23 @@ export default {
   },
 
   methods: {
+    ...mapActions('CRMPersons', [
+      'deletePerson'
+    ]),
     isImage(data) {
       return data.type === 'image' &&
         data.imageLink;
+    },
+    async deletePersonById(id) {
+      try {
+        const response = await this.deletePerson({
+          params: {
+            id,
+          },
+        });
+
+        console.log(response);
+      } catch(e) { console.error(e) }
     },
   },
 }

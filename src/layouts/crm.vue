@@ -3,18 +3,24 @@
     <div class="layout-crm__content">
       <CRMLeftBar class="layout-crm__left-bar" />
 
-      <router-view class="layout-crm__view" />
+      <div class="layout-crm__view">
+        <CRMHeader />
+
+        <router-view class="" />
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import CRMLeftBar from "@/components/CRM/CRMLeftBar";
+import CRMHeader from '@/components/CRM/CRMHeader';
 
 export default {
   name: 'LayoutCRM',
   components: {
     CRMLeftBar,
+    CRMHeader,
   },
 }
 </script>

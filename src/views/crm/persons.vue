@@ -1,7 +1,5 @@
 <template>
   <div class="view-crm-persons">
-    <CRMHeader />
-
     <div class="view-crm-persons__btns">
       <VButton class="view-crm-persons__btn-item" @click.native="addPerson">
         Добавить
@@ -24,7 +22,6 @@
 import { mapActions, mapState } from 'vuex';
 
 import dayjs from 'dayjs';
-import CRMHeader from '@/components/CRM/CRMHeader';
 import VTable from '@/components/common/ui/VTable';
 import VButton from '@/components/common/ui/Buttons/VButton';
 import ModalAddPerson from '@/components/common/Modals/CRM/ModalAddPerson';
@@ -58,7 +55,6 @@ const personScheme = {
 export default {
   name: 'ViewCRMPersons',
   components: {
-    CRMHeader,
     ModalAddPerson,
     VTable,
     VButton,
@@ -74,7 +70,7 @@ export default {
       },
       {
         id: 2,
-        type: 'linkToProfile',
+        type: 'string',
         alias: 'fullName',
         value: 'ФИО',
       },
@@ -104,9 +100,11 @@ export default {
         value: 'Дата создания',
       },
     ],
-    persons: [],
   }),
   computed: {
+    ...mapState('CRMPersons', [
+      'persons',
+    ]),
     ...mapState('CRMEducations', [
       'educations',
     ]),
@@ -121,20 +119,20 @@ export default {
         for(let personKey of personKeys) {
           for(let [key, value] of Object.entries(personScheme)) {
             if(personKey === key) {
-              if(value.type === 'image') {
-                newPersonData.push({ type: 'image', imageLink: person[personKey], alias: key })
+              switch(value.type) {
+                case 'image':
+                  newPersonData.push({ type: 'image', imageLink: person[personKey], alias: key })
 
-                break;
+                  break;
+                case 'date': {
+                  const date = dayjs(person[personKey]).format(value.format);
+                  newPersonData.push({ type: 'string', value: date, alias: key })
+
+                  break;
+                }
+                default:
+                  newPersonData.push({ type: value.type, value: person[personKey] || '-', alias: key });
               }
-
-              if(value.type === 'date') {
-                const date = dayjs(person[personKey]).format(value.format);
-                newPersonData.push({ type: 'string', value: date, alias: key })
-
-                break;
-              }
-
-              newPersonData.push({ type: value.type, value: person[personKey] || '-', alias: key });
             }
           }
         }
@@ -148,19 +146,9 @@ export default {
 
   async created() {
     try {
-      const personsResponse = await this.getPersons()
-
-      if(personsResponse.status !== 200) {
-        throw new Error(personsResponse)
-      }
-
-      this.persons = personsResponse.data;
-      // const educationsResponse = await this.getEducations()
-      //
-      // if(educationsResponse.status !== 200) {
-      //   throw new Error(educationsResponse)
-      // }
-
+      await Promise.all([
+        this.getPersons(),
+      ]);
     } catch(e) { console.log(e); }
   },
 

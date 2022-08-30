@@ -60,6 +60,8 @@ export default {
 }
 
 .crm-left-bar__routes {
-  margin-top: 100px;
+  border-top: 1px solid $light-gray-color;
+  padding: 20px 0;
+  margin-top: 150px;
 }
 </style>
