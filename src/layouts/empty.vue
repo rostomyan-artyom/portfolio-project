@@ -11,5 +11,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+.layout-empty {
+  background-color: #e5e5e5
+}
 </style>

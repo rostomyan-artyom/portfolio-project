@@ -1,4 +1,4 @@
-import { deletePersonByIdRequest, getPersonsRequest } from '@/requestManager/CRM/personsRequests';
+import { deletePersonRequest, getPersonsRequest } from '@/requestManager/CRM/personsRequests';
 
 const state = () => ({
   persons: [],
@@ -9,11 +9,21 @@ const mutations = {
     state.persons = persons;
   },
   DELETE_PERSON(state, personId) {
-    console.log('пошла жара', personId)
     state.persons = state.persons.filter(({ id }) => (
       id !== personId
     ))
   },
+  ADD_NEW_PERSON(state, person) {
+    state.persons.push(person);
+  },
+  EDIT_PERSON(state, person) {
+    const actualPerson = state.persons.find(item => item.id === person.id);
+    const actualPersonIndex = state.persons.indexOf(actualPerson);
+
+    if(actualPersonIndex !== -1) {
+      state.persons.splice(actualPersonIndex, 1, person);
+    }
+  }
 };
 
 const actions = {
@@ -27,7 +37,7 @@ const actions = {
     return response;
   },
   async deletePerson({ commit }, {params}) {
-    const response = await deletePersonByIdRequest({ params });
+    const response = await deletePersonRequest({ params });
 
     if(response.status === 200) {
       commit('DELETE_PERSON', params.id);

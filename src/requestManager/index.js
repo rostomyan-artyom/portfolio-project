@@ -1,18 +1,10 @@
-export const replaceUrlPattern = (url, params) => {
-  if(!params) return url;
+export const replaceUrlPattern = (url, params) =>
+  Object.keys(params).reduce((replacedUrl, paramKey) => {
+  const regExp = new RegExp(`{${paramKey}}`, "g");
+  replacedUrl = replacedUrl.replace(regExp, params[paramKey]);
 
-  return Object.keys(params).reduce((replacedUrl, paramKey) => {
-    console.log(`
-      replacedUrl - ${ replacedUrl },
-      paramKey - ${ paramKey }
-    `)
-
-    const regExp = new RegExp(`{${paramKey}}`, "g");
-    replacedUrl = replacedUrl.replace(regExp, params[paramKey]);
-    console.log(replacedUrl, 1);
-    return replacedUrl;
-  }, url)
-}
+  return replacedUrl;
+}, url);
 
 
 

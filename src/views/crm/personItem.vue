@@ -10,7 +10,7 @@
 
 <script>
 import CRMPersonItemProfile from '@/components/CRM/CRMPersonItem/CRMPersonItemProfile';
-import { getPersonByIdRequest } from '@/requestManager/CRM/personsRequests';
+import { getPersonRequest } from '@/requestManager/CRM/personsRequests';
 
 export default {
   name: 'ViewCRMPersonItem',
@@ -24,7 +24,7 @@ export default {
   },
 
   async created() {
-    const profileResponse = await getPersonByIdRequest({
+    const profileResponse = await getPersonRequest({
       params: {
         id: this.$route.params.id,
       },

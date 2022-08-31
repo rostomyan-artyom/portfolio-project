@@ -21,5 +21,5 @@ export default [
     name: 'crm-person-item',
     meta: { layout: 'crm', },
     component: ViewCRMPersonItem,
-  }
+  },
 ];

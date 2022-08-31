@@ -7,13 +7,13 @@
       class="crm-header__burger"
     />
 
-    <div class="crm-header__account">
-      <button class="crm-header__account-info-btn">
-        <ArrowIcon class="crm-header__arrow"/>
-      </button>
+<!--    <div class="crm-header__account">-->
+<!--      <button class="crm-header__account-info-btn">-->
+<!--        <ArrowIcon class="crm-header__arrow"/>-->
+<!--      </button>-->
 
-      <PersonIcon class="crm-header__person" />
-    </div>
+<!--      <PersonIcon class="crm-header__person" />-->
+<!--    </div>-->
   </div>
 </template>
 
@@ -21,15 +21,15 @@
 import burgerMixin from '@/mixins/CRM/burgerMixin';
 
 import VBurger from '@/components/common/ui/VBurger';
-import ArrowIcon from '@/assets/icons/common/arrow.svg';
-import PersonIcon from '@/assets/icons/common/person.svg';
+//import ArrowIcon from '@/assets/icons/common/arrow.svg';
+//import PersonIcon from '@/assets/icons/common/person.svg';
 
 export default {
   name: 'CRMHeader',
   components: {
     VBurger,
-    ArrowIcon,
-    PersonIcon,
+    //ArrowIcon,
+    //PersonIcon,
   },
   mixins: [ burgerMixin, ],
 }
@@ -42,6 +42,7 @@ export default {
   justify-content: flex-end;
   border-bottom: 1px solid $light-gray-color;
   padding: 12px 0 15px 0;
+  min-height: 50px;
 }
 
 .crm-header__burger-closed .crm-header__burger {
@@ -53,6 +54,7 @@ export default {
 ::v-deep .crm-header__arrow {
   width: 13px;
   height: auto;
+
   path {
     fill: $blue;
   }
@@ -60,9 +62,11 @@ export default {
 
 ::v-deep .crm-header__person {
   margin-left: 10px;
+
   path {
     stroke: $blue;
   }
+
   circle {
     stroke: $blue;
   }

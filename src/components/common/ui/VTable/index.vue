@@ -49,13 +49,13 @@
 
         <ul class="v-table__actions">
           <li v-tooltip="'Редактировать'" class="v-table__action-item">
-            <button>
+            <button @click.stop="$emit('editById', personItem.id)">
               <EditIcon class="v-table__action-icon v-table__action-icon_edit" />
             </button>
           </li>
 
           <li v-tooltip="'Удалить'" class="v-table__action-item">
-            <button @click="deletePersonById(personItem.id)">
+            <button @click="$emit('deleteById', personItem.id)">
               <CrossIcon class="v-table__action-icon v-table__action-icon_cross" />
             </button>
           </li>
@@ -100,19 +100,7 @@ export default {
       'deletePerson'
     ]),
     isImage(data) {
-      return data.type === 'image' &&
-        data.imageLink;
-    },
-    async deletePersonById(id) {
-      try {
-        const response = await this.deletePerson({
-          params: {
-            id,
-          },
-        });
-
-        console.log(response);
-      } catch(e) { console.error(e) }
+      return data.type === 'image'
     },
   },
 }
@@ -125,34 +113,30 @@ export default {
   background-color: #fff;
   border-radius: 8px;
   padding: 12px 15px;
-  //overflow: auto;
 }
 
 .v-table__header {
-  //display: grid;
-  //grid-template-columns: repeat(auto-fit,minmax(100px,1fr));
   padding: 10px 100px 10px 0;
   border-bottom: 1px solid $light-gray-color;
-
   display: table;
   width: 100%;
   table-layout: fixed;
 }
 
+.v-table__body {
+  overflow: auto;
+  max-height: 650px;
+  padding: 0 15px 0 0;
+}
+
 .v-table__row-container {
   position: relative;
   max-width: 100%;
+  padding: 0 85px 0 0;
   overflow: hidden;
-  padding: 0 100px 0 0;
-}
-
-.v-table__row-container:hover .v-table__actions {
-  transform: translate(0, -50%);
 }
 
 .v-table__row {
-  //display: grid;
-  //grid-template-columns: repeat(auto-fit,minmax(100px,1fr));
   display: table;
   padding: 10px 0;
   margin: 10px 0;
@@ -165,9 +149,10 @@ export default {
   vertical-align: middle;
 
   &:not(:first-child) {
-    padding: 0px 15px;
+    padding: 0 15px;
     border-left: 1px solid $light-gray-color;
   }
+
   &:last-child {
   }
 }
@@ -184,8 +169,14 @@ export default {
   line-height: 115%;
   color: #444444;
   transition: .2s cubic-bezier(0.6, 0.1, 0.15, 0.8);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+
   &_link {
     color: #000072;
+
     &:hover {
       color: #790000;
     }
@@ -207,6 +198,14 @@ export default {
   padding: 0 5px;
   transform: translate(110%, -50%);
   transition: .3s cubic-bezier(0.6, 0.1, 0.15, 0.8);
+
+  @media (max-width: 1200px) {
+    transform: translate(0, -50%);
+  }
+}
+
+.v-table__row-container:hover .v-table__actions {
+  transform: translate(0, -50%);
 }
 
 .v-table__action-item {
@@ -222,13 +221,16 @@ export default {
   box-shadow: 0 0 3px -1px #6b6b6b;
   transition: .2s cubic-bezier(0.6, 0.1, 0.15, 0.8);
   cursor: pointer;
+
   &:not(:first-child) {
     margin-left: 10px;
   }
+
   &:hover {
     box-shadow: 0 0 3px -1px #4b4b4b;
     transform: translate(0, -5px);
   }
+
   &:active {
     transform: translate(0, -5px) scale(0.97);
     background-color: #f6f6f6;

@@ -2,6 +2,7 @@
   <Datepicker
     :lang="lang"
     :value="value"
+    :format="format"
     @input="$emit('input', $event)"
   />
 </template>
@@ -28,11 +29,11 @@ export default {
     value: {
       type: [Number, Date],
     },
+    format: {
+      type: String,
+      default: 'DD.MM.YYYY'
+    }
   },
-
-  data: () => ({
-
-  })
 }
 </script>
 

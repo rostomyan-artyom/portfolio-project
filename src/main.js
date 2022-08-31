@@ -6,6 +6,7 @@ import router from './router'
 import axios from '@/initial/axios';
 
 import '@/initial/vue-modules';
+import '@/initial/vue-directives';
 
 Vue.config.productionTip = false
 

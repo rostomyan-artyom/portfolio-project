@@ -1,7 +1,15 @@
 <template>
   <div class="v-table-avatar">
     <img
+      v-if="imageLink"
       :src="imageLink"
+      alt="#"
+      class="v-table-avatar__img"
+    />
+
+    <img
+      v-else
+      src="@/assets/images/common/not-image.jpg"
       alt="#"
       class="v-table-avatar__img"
     />
@@ -27,7 +35,7 @@ export default {
   height: 100%;
   border-radius: 50%;
   overflow: hidden;
-  box-shadow: 0px 0px 4px 1px #e0e0e0;
+  box-shadow: 0 0 4px 1px #e0e0e0;
 }
 
 .v-table-avatar__img {

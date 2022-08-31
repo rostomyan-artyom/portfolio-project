@@ -3,6 +3,8 @@
     <component :is="layout">
       <router-view/>
     </component>
+
+    <notifications group="error" position="bottom left" />
   </div>
 </template>
 
@@ -22,7 +24,7 @@ export default {
 
         return () => import(`@/${layoutPath}/${ln}.vue`);
 
-      } catch(e) {
+      } catch (e) {
         console.error(e);
         return  '';
       }

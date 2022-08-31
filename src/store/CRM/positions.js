@@ -15,11 +15,11 @@ const actions = {
     const response = await getPositionsRequest();
 
     if(response.status === 200) {
-      commit('SET_POSITIONS', response.data)
+      commit('SET_POSITIONS', response.data);
     }
 
     return response;
-  }
+  },
 };
 
 export default {

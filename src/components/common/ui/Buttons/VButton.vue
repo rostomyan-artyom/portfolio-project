@@ -16,6 +16,7 @@ export default {
 .v-button {
   transition: .2s;
   cursor: pointer;
+
   &:hover {
     transform: translate(0, -5px);
   }
@@ -28,9 +29,11 @@ export default {
   background-color: #000067;
   transition: .2s;
   color: #fff;
+
   &:hover {
     background-color: #000094;
   }
+
   &:active {
     background-color: #000067;
   }

@@ -47,6 +47,7 @@ export default {
   cursor: pointer;
   transition: .2s cubic-bezier(0.6, 0.1, 0.15, 0.8);
   border: 1px solid transparent;
+
   &_active {
     background-color: $blue;
     color: #fff;

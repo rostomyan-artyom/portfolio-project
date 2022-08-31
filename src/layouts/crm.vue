@@ -9,25 +9,34 @@
         <router-view />
       </div>
     </div>
+
+    <transition name="fade">
+      <ModalGroup v-if="openedCustomModal" class="layout-crm__modal" />
+    </transition>
   </div>
 </template>
 
 <script>
 import { mapState, } from 'vuex';
 
-import CRMLeftBar from "@/components/CRM/common/CRMLeftBar";
+import CRMLeftBar from '@/components/CRM/common/CRMLeftBar';
 import CRMHeader from '@/components/CRM/common/CRMHeader';
+import ModalGroup from '@/components/common/Modals/ModalGroup';
 
 export default {
   name: 'LayoutCRM',
   components: {
     CRMLeftBar,
     CRMHeader,
+    ModalGroup,
   },
 
   computed: {
     ...mapState('CRMBurger', [
       'burgerShow',
+    ]),
+    ...mapState('Modal', [
+      'openedCustomModal',
     ]),
   },
 }
@@ -38,6 +47,7 @@ export default {
   min-height: 100vh;
   padding: 15px 40px;
   background-color: #ebebeb;
+
   @media (max-width: 1200px) {
     padding: 0;
     background-color: #f5f5f5;
@@ -49,6 +59,7 @@ export default {
   border-radius: 7px;
   height: calc(100vh - 30px);
   overflow: hidden;
+
   @media (max-width: 1200px) {
     height: 100vh;
   }
@@ -71,6 +82,10 @@ export default {
   padding:  80px 15px 0 15px;
   max-height: 100%;
   overflow: auto;
+
+  @media (max-width: 650px) {
+    padding: 45px 15px 0 15px;
+  }
 }
 
 .layout-crm__header {
@@ -80,5 +95,19 @@ export default {
   width: calc(100% - 30px);
   background-color: #f5f5f5;
   z-index: 2;
+}
+
+.layout-crm__modal {
+  z-index: 99;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>

@@ -5,11 +5,14 @@ import VueAxios from 'vue-axios';
 import axios from '@/initial/axios';
 Vue.use(VueAxios, axios);
 
-// Vue.js Modal
-import VModal from 'vue-js-modal';
-Vue.use(VModal)
-
-
 // VTooltip
-import VTooltip from 'v-tooltip'
-Vue.use(VTooltip)
+import VTooltip from 'v-tooltip';
+Vue.use(VTooltip);
+
+// PortalVue
+import PortalVue from 'portal-vue';
+Vue.use(PortalVue);
+
+// VueNotification
+import VueNotification from 'vue-notification';
+Vue.use(VueNotification);

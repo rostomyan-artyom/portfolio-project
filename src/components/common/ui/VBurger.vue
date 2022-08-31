@@ -71,13 +71,13 @@ export default {
 
 .v-burger_open span:before {
     transition: top .25s, transform .25s .25s;
-    top: 0px;
+    top: 0;
     transform: rotateZ(-45deg);
 }
 
 .v-burger_open span:after {
     transition: top 0.4s, transform .25s .25s;
-    top: 0px;
+    top: 0;
     transform: rotateZ(45deg);
 }
 </style>

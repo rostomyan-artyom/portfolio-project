@@ -15,11 +15,11 @@ const actions = {
     const response = await getEducationsRequest();
 
     if(response.status === 200) {
-      commit('SET_EDUCATIONS', response.data)
+      commit('SET_EDUCATIONS', response.data);
     }
 
     return response;
-  }
+  },
 };
 
 export default {
