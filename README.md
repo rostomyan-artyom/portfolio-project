@@ -16,6 +16,7 @@
   - npm i
 
 2. Запуск json-сервера (Для этого используйте второе окно терминала):
+    * обязательно проверь что ты в нужной директории (в папке portfolio-rostomyan)
   - json-server --watch db.json
 ###
     если у вас нет json-web-server - установите его npm install -g json-server
