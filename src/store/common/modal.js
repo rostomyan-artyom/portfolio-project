@@ -7,7 +7,6 @@ const mutations = {
     state.openedCustomModal = miniServiceName;
   },
   CLOSE_CUSTOM_MODAL(state) {
-    console.log('dffdgdfg')
     state.openedCustomModal = null;
   },
   SET_CUSTOM_MODAL_STATUS(state, miniServiceName) {
